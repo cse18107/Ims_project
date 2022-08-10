@@ -13,7 +13,7 @@ const studentSchema = new mongoose.Schema({
         url: {
             type:String,
             require:false,
-        }
+        },
     },
     batch:{
         type:String,
@@ -51,5 +51,50 @@ const studentSchema = new mongoose.Schema({
     aadharNumber:{
         type:String,
         require:[true,'Please enter your Aadhar Number'],
+    },
+    admissionDetails:{
+        admissionYear:{
+            type:String,
+            require:[true,'Please enter your admission year']
+        },
+        webjee_jee:{
+            type:String,
+            require:[true,'Please enter your WBJEE/JEE rank'],
+        },
+        admissionType:{
+            type:String,
+            enum:['REGULAR','LITERAL'],
+            require:[true,'Please enter your admission type'],
+        },
+        jelet_rank:{
+            type:String,
+            require:false
+        }
+    },
+    communicationDetails:{
+        fatherName:{
+            type:String,
+            require:false,
+        },
+        fatherEmail:{
+            type:String,
+            require:false,
+        },
+        motherName:{
+            type:String,
+            require:false,
+        },
+        fatherMobile:{
+            type:String,
+            require:false,
+        },
+        address:{
+            type:String,
+            require:false,
+        }
     }
 });
+
+const Student = mongoose.model('Student',studentSchema);
+
+module.exports = Student;
