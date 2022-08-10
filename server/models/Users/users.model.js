@@ -9,6 +9,26 @@ const UserSchema = mongoose.Schema({
     type: String,
     require: [true, "Please enter your first name"],
   },
+  studentId:{
+    type:mongoose.Schema.ObjectId,
+    ref:'Student',
+    require:false
+  },
+  teacherId:{
+    type:mongoose.Schema.ObjectId,
+    ref:'Teacher',
+    require:false
+  },
+  adminId:{
+    type:mongoose.Schema.ObjectId,
+    ref:'Admin',
+    require:false
+  },
+  sailerId:{
+    type:mongoose.Schema.ObjectId,
+    ref:'Sailer',
+    require:false
+  },
   middle_name: {
     type: String,
     require: false,
